@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_groups_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/bb_bottom_bar_top_shadow"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tv_event_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="15dp"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/iv_group_picture"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tv_event_name" />
+
+        <TextView
+            android:id="@+id/tv_group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_event_name"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@id/iv_group_picture"
+            android:layout_toRightOf="@+id/iv_group_picture"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_group_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_group_name"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="13dp"
+            android:layout_toEndOf="@+id/iv_group_picture"
+            android:layout_toRightOf="@+id/iv_group_picture"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:id="@+id/relativelayout_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_event_name">
+
+            <ImageView
+                android:id="@+id/ivCategorie1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true" />
+
+            <ImageView
+                android:id="@+id/ivCategorie2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/ivCategorie1" />
+
+            <ImageView
+                android:id="@+id/ivCategorie3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/ivCategorie2" />
+
+            <ImageView
+                android:id="@+id/ivCategorie4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/ivCategorie1" />
+
+            <ImageView
+                android:id="@+id/ivCategorie5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivCategorie1"
+                android:layout_toRightOf="@id/ivCategorie4" />
+
+            <ImageView
+                android:id="@+id/ivCategorie6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivCategorie1"
+                android:layout_toRightOf="@+id/ivCategorie5" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

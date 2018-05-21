@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <tabs>
+        <tab
+            id="@+id/tab_e"
+            icon="@drawable/icon_events"
+            title="Events" />
+        <tab
+            id="@+id/tab_group"
+            icon="@drawable/icon_groups"
+            title="Groups" />
+        <tab
+            id="@+id/tab_createEvent"
+            icon="@drawable/icon_event_plus"
+            title="CreateEvents" />
+        <tab
+            id="@+id/tab_settings"
+            icon="@drawable/icon_settings"
+            title="Settings" />
+    </tabs>
+</resources>

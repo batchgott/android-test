@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!--TODO icon auf Englisch und mit richtiger Name Convention-->
+
+    <CheckBox
+        android:id="@+id/cbx_drink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@+id/iv_drink"
+        android:text="Trinken" />
+
+    <CheckBox
+        android:id="@+id/cbx_dance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbx_drink"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@id/iv_dance"
+        android:text="Tanzen" />
+
+    <CheckBox
+        android:id="@+id/cbx_sing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbx_dance"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@+id/iv_sing"
+        android:text="Singen " />
+
+    <CheckBox
+        android:id="@+id/cbx_smoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@+id/iv_smoke"
+        android:text="Rauchen" />
+
+    <CheckBox
+        android:id="@+id/cbx_talk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbx_smoke"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@+id/iv_talk"
+        android:text="Reden" />
+
+    <CheckBox
+        android:id="@+id/cbx_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbx_talk"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@+id/iv_play"
+        android:text="Spielen" />
+
+    <ImageView
+        android:id="@+id/iv_drink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@+id/iv_space"
+        android:src="@drawable/icon_drink_without_padding" />
+
+    <ImageView
+        android:id="@+id/iv_space"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp" />
+
+    <ImageView
+        android:id="@+id/iv_smoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@+id/iv_space"
+        android:src="@drawable/icon_smoking_without_padding" />
+
+    <ImageView
+        android:id="@+id/iv_dance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_drink"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@+id/iv_space"
+        android:src="@drawable/icon_dance_without_padding" />
+
+    <ImageView
+        android:id="@+id/iv_talk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_smoke"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@+id/iv_space"
+        android:src="@drawable/icon_talk_without_padding" />
+
+    <ImageView
+        android:id="@+id/iv_sing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_dance"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@+id/iv_space"
+        android:src="@drawable/icon_sing_without_padding" />
+
+    <ImageView
+        android:id="@+id/iv_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_talk"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@+id/iv_space"
+        android:src="@drawable/icon_play_without_padding" />
+
+</RelativeLayout>

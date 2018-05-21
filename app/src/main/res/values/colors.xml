@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- inactive dots colours -->
+    <color name="dot_inactive_screen1">#74777f</color>
+    <color name="dot_inactive_screen2">#14a895</color>
+    <color name="dot_inactive_screen3">#14a895</color>
+    <!-- active dots colours -->
+    <color name="dot_active_screen1">#f4f6f9</color>
+    <color name="dot_active_screen2">#8cf9eb</color>
+    <color name="dot_active_screen3">#8cf9eb</color>
+
+    <!-- Backround colours -->
+    <color name="backround_start_screen">#20d2bb</color>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="backround_intro_slider">#00bcd4</color>
+</resources>
