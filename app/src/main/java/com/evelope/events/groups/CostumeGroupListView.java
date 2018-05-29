@@ -82,91 +82,52 @@ public class CostumeGroupListView extends ArrayAdapter<String> {
         List<Categorie> categorieList = new ArrayList<>();
         //region set Categorie Pictures
          categorieList=AppDatabase.getAppDatabase(getContext()).categorieDao().getCategoriesForGroupID(groupID[position]);
+         Integer count=1;
             for (Categorie c : categorieList) {
+                ImageView concreteView=null;
+                if(count==1) {
+                     concreteView=viewHolder.ivC1;
+                }
+                if(count==2) {
+                     concreteView=viewHolder.ivC2;
+                }
+                if(count==3) {
+                     concreteView=viewHolder.ivC3;
+                }
+                if(count==4) {
+                     concreteView=viewHolder.ivC4;
+                }
+                if(count==5) {
+                     concreteView=viewHolder.ivC5;
+                }
+                if(count==6) {
+                     concreteView=viewHolder.ivC6;
+                }
                 if (c.getName().equals("drink")) {
-                    if (viewHolder.ivC1.getDrawable() == null &&categorieList.size()<=1)
-                        viewHolder.ivC1.setImageResource(R.drawable.icon_drink_without_padding);
-                    else if (viewHolder.ivC2.getDrawable() == null &&categorieList.size()<=2)
-                        viewHolder.ivC2.setImageResource(R.drawable.icon_drink_without_padding);
-                    else if (viewHolder.ivC3.getDrawable() == null &&categorieList.size()<=3)
-                        viewHolder.ivC3.setImageResource(R.drawable.icon_drink_without_padding);
-                    else if (viewHolder.ivC4.getDrawable() == null &&categorieList.size()<=4)
-                        viewHolder.ivC4.setImageResource(R.drawable.icon_drink_without_padding);
-                    else if (viewHolder.ivC5.getDrawable() == null &&categorieList.size()<=5)
-                        viewHolder.ivC5.setImageResource(R.drawable.icon_drink_without_padding);
-                    else if (viewHolder.ivC6.getDrawable() == null &&categorieList.size()<=6)
-                        viewHolder.ivC6.setImageResource(R.drawable.icon_drink_without_padding);
+                    concreteView.setImageResource(R.drawable.icon_drink_without_padding);
+                    count++;
                 }
                 if (c.getName().equals("dance")) {
-                    if (viewHolder.ivC1.getDrawable() == null &&categorieList.size()<=1)
-                        viewHolder.ivC1.setImageResource(R.drawable.icon_dance_without_padding);
-                    else if (viewHolder.ivC2.getDrawable() == null &&categorieList.size()<=2)
-                        viewHolder.ivC2.setImageResource(R.drawable.icon_dance_without_padding);
-                    else if (viewHolder.ivC3.getDrawable() == null &&categorieList.size()<=3)
-                        viewHolder.ivC3.setImageResource(R.drawable.icon_dance_without_padding);
-                    else if (viewHolder.ivC4.getDrawable() == null &&categorieList.size()<=4)
-                        viewHolder.ivC4.setImageResource(R.drawable.icon_dance_without_padding);
-                    else if (viewHolder.ivC5.getDrawable() == null &&categorieList.size()<=5)
-                        viewHolder.ivC5.setImageResource(R.drawable.icon_dance_without_padding);
-                    else if (viewHolder.ivC6.getDrawable() == null &&categorieList.size()<=6)
-                        viewHolder.ivC6.setImageResource(R.drawable.icon_dance_without_padding);
+                    concreteView.setImageResource(R.drawable.icon_dance_without_padding);
+                    count++;
                 }
                 if (c.getName().equals("sing")) {
-                    if (viewHolder.ivC1.getDrawable() == null &&categorieList.size()<=1)
-                        viewHolder.ivC1.setImageResource(R.drawable.icon_dance_without_padding);
-                    else if (viewHolder.ivC2.getDrawable() == null &&categorieList.size()<=2)
-                        viewHolder.ivC2.setImageResource(R.drawable.icon_dance_without_padding);
-                    else if (viewHolder.ivC3.getDrawable() == null &&categorieList.size()<=3)
-                        viewHolder.ivC3.setImageResource(R.drawable.icon_dance_without_padding);
-                    else if (viewHolder.ivC4.getDrawable() == null &&categorieList.size()<=4)
-                        viewHolder.ivC4.setImageResource(R.drawable.icon_dance_without_padding);
-                    else if (viewHolder.ivC5.getDrawable() == null &&categorieList.size()<=5)
-                        viewHolder.ivC5.setImageResource(R.drawable.icon_dance_without_padding);
-                    else if (viewHolder.ivC6.getDrawable() == null &&categorieList.size()<=6)
-                        viewHolder.ivC6.setImageResource(R.drawable.icon_dance_without_padding);
+                    concreteView.setImageResource(R.drawable.icon_sing_without_padding);
+                    count++;
                 }
                 if (c.getName().equals("smoke")) {
-                    if (viewHolder.ivC1.getDrawable() == null &&categorieList.size()<=1)
-                        viewHolder.ivC1.setImageResource(R.drawable.icon_smoking_without_padding);
-                    else if (viewHolder.ivC2.getDrawable() == null &&categorieList.size()<=2)
-                        viewHolder.ivC2.setImageResource(R.drawable.icon_smoking_without_padding);
-                    else if (viewHolder.ivC3.getDrawable() == null &&categorieList.size()<=3)
-                        viewHolder.ivC3.setImageResource(R.drawable.icon_smoking_without_padding);
-                    else if (viewHolder.ivC4.getDrawable() == null &&categorieList.size()<=4)
-                        viewHolder.ivC4.setImageResource(R.drawable.icon_smoking_without_padding);
-                    else if (viewHolder.ivC5.getDrawable() == null &&categorieList.size()<=5)
-                        viewHolder.ivC5.setImageResource(R.drawable.icon_smoking_without_padding);
-                    else if (viewHolder.ivC6.getDrawable() == null &&categorieList.size()<=6)
-                        viewHolder.ivC6.setImageResource(R.drawable.icon_smoking_without_padding);
+                    concreteView.setImageResource(R.drawable.icon_smoking_without_padding);
+                    count++;
                 }
                 if (c.getName().equals("talk")) {
-                    if (viewHolder.ivC1.getDrawable() == null &&categorieList.size()<=1)
-                        viewHolder.ivC1.setImageResource(R.drawable.icon_talk_without_padding);
-                    else if (viewHolder.ivC2.getDrawable() == null &&categorieList.size()<=2)
-                        viewHolder.ivC2.setImageResource(R.drawable.icon_talk_without_padding);
-                    else if (viewHolder.ivC3.getDrawable() == null &&categorieList.size()<=3)
-                        viewHolder.ivC3.setImageResource(R.drawable.icon_talk_without_padding);
-                    else if (viewHolder.ivC4.getDrawable() == null &&categorieList.size()<=4)
-                        viewHolder.ivC4.setImageResource(R.drawable.icon_talk_without_padding);
-                    else if (viewHolder.ivC5.getDrawable() == null &&categorieList.size()<=5)
-                        viewHolder.ivC5.setImageResource(R.drawable.icon_talk_without_padding);
-                    else if (viewHolder.ivC6.getDrawable() == null &&categorieList.size()<=6)
-                        viewHolder.ivC6.setImageResource(R.drawable.icon_talk_without_padding);
+                    concreteView.setImageResource(R.drawable.icon_talk_without_padding);
+                    count++;
                 }
                 if (c.getName().equals("play")) {
-                    if (viewHolder.ivC1.getDrawable() == null &&categorieList.size()<=1)
-                        viewHolder.ivC1.setImageResource(R.drawable.icon_play_without_padding);
-                    else if (viewHolder.ivC2.getDrawable() == null &&categorieList.size()<=2)
-                        viewHolder.ivC2.setImageResource(R.drawable.icon_play_without_padding);
-                    else if (viewHolder.ivC3.getDrawable() == null &&categorieList.size()<=3)
-                        viewHolder.ivC3.setImageResource(R.drawable.icon_play_without_padding);
-                    else if (viewHolder.ivC4.getDrawable() == null &&categorieList.size()<=4)
-                        viewHolder.ivC4.setImageResource(R.drawable.icon_play_without_padding);
-                    else if (viewHolder.ivC5.getDrawable() == null &&categorieList.size()<=5)
-                        viewHolder.ivC5.setImageResource(R.drawable.icon_play_without_padding);
-                    else if (viewHolder.ivC6.getDrawable() == null &&categorieList.size()<=6)
-                        viewHolder.ivC6.setImageResource(R.drawable.icon_play_without_padding);
+                    concreteView.setImageResource(R.drawable.icon_play_without_padding);
+                    count++;
                 }
+
             }
 
         //endregion
