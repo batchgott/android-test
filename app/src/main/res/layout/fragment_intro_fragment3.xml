@@ -27,7 +27,7 @@
             android:id="@+id/intro_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Viel Vergnügen auf deinen nächsten Event"
+            android:text="Viel Vergnügen auf deinem nächsten Event"
             android:fontFamily="@font/microsoft_yi_baiti"
             android:textColor="@color/white"
             android:textSize="40sp"
