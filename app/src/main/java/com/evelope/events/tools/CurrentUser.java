@@ -1,6 +1,8 @@
 package com.evelope.events.tools;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.evelope.events.MyApplication;
 import com.evelope.events.database.AppDatabase;
@@ -8,6 +10,7 @@ import com.evelope.events.database.User;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 
 
@@ -15,10 +18,17 @@ import java.io.InputStreamReader;
 public class CurrentUser {
 
     private static User user;
+
+    public static Long getUserID() {
+        getCurrentUser();
+        return userID;
+    }
+
     private static Long userID;
 
     public static void setNull(){
         user =null;
+        userID=null;
     }
 
     public static User get(){
@@ -27,8 +37,21 @@ public class CurrentUser {
         return user;
     }
 
-    //TODO Delete CurrentUser when User logs out
-    //TODO Check if someone is logged in, if not throw exception
+    public static void Logout(){
+        user=null;
+        userID=-10l;
+        FileInputStream fis;
+        String getFileText;
+        FileOutputStream fos;
+        try {
+            fos = MyApplication.getContext().openFileOutput("currentUser", Context.MODE_PRIVATE);
+            fos.write("-10".getBytes());
+            fos.close();
+        } catch (Exception e) {
+            Log.e("Logout: ",Log.getStackTraceString(e));
+        }
+    }
+
     private static void getCurrentUser(){
         FileInputStream fis;
         String getFileText;
@@ -45,20 +68,19 @@ public class CurrentUser {
         } catch (Exception e) {
             Log.e("getCurrentUser: ",Log.getStackTraceString(e));
         }
-        Thread t=new Thread(new Runnable() {
-            @Override
-            public void run() {
-                AppDatabase db= AppDatabase.getAppDatabase(MyApplication.getContext());
-                user =db.userDao().getUserByID(userID);
+        if (userID!=-10) {
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    AppDatabase db = AppDatabase.getAppDatabase(MyApplication.getContext());
+                    user = db.userDao().getUserByID(userID);
+                }
+            });
+            t.start();
+            try {
+                t.join();
+            } catch (InterruptedException ex) {
             }
-        });
-        t.start();
-        try
-        {
-            t.join();
-        }
-        catch(InterruptedException ex)
-        {
         }
     }
 }

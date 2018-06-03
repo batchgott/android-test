@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.evelope.events.MainActivity;
 import com.evelope.events.R;
+import com.evelope.events.introSlider.IntroActivity;
 import com.evelope.events.tools.exceptions.LoginInputException;
 import com.evelope.events.tools.inputCheck.LoginInputCheck;
 
@@ -57,6 +58,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(LoginActivity.this, IntroActivity.class);
+        intent.putExtra(Intent.EXTRA_TEXT,"reglog");
+        startActivity(intent);
+    }
 
     private void goToMainActivity(){
         loginInputCheck=new LoginInputCheck(et_email.getText().toString(),et_password.getText().toString(),getApplicationContext());

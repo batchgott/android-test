@@ -101,6 +101,14 @@
         android:textSize="18sp"
         android:background="@drawable/back"
         />
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_phonenumber"
+        android:layout_alignParentRight="true"
+        android:text="Logout"
+        android:layout_marginTop="20dp"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/float_edit"

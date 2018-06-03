@@ -1,12 +1,14 @@
 package com.evelope.events.edit;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ import com.evelope.events.MainActivity;
 import com.evelope.events.R;
 import com.evelope.events.database.User;
 import com.evelope.events.efragment;
+import com.evelope.events.login.LoginActivity;
 import com.evelope.events.tools.CurrentUser;
 import com.evelope.events.tools.GetPictureFromFile;
 
@@ -29,6 +32,7 @@ public class ShowUserFragment extends Fragment {
     TextView tv_email;
     TextView tv_description;
     TextView tv_phonenumber;
+    Button btn_logout;
 
 
     public ShowUserFragment() {
@@ -47,6 +51,15 @@ public class ShowUserFragment extends Fragment {
         tv_email=view.findViewById(R.id.tv_email);
         tv_description=view.findViewById(R.id.tv_description);
         tv_phonenumber=view.findViewById(R.id.tv_phonenumber);
+        btn_logout=view.findViewById(R.id.btn_logout);
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CurrentUser.Logout();
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+            }
+        });
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -74,11 +74,12 @@
 
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <!--<android.support.design.widget.TextInputLayout
         android:id="@+id/textInput_layout_event_startDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textInput_layout_event_location">
+
 
     <android.support.design.widget.TextInputEditText
         android:id="@+id/edit_event_startDate"
@@ -87,8 +88,46 @@
         android:inputType="date"
         android:hint="Beginn" />
 
-    </android.support.design.widget.TextInputLayout>
+    </android.support.design.widget.TextInputLayout>-->
 
+    <LinearLayout
+        android:id="@+id/linearLayout_startTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/textInput_layout_event_location">
+
+        <Button
+            android:id="@+id/btn_chose_start_date"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:text="Wähle das Start Datum"
+            />
+        <TextView
+            android:id="@+id/tv_showStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_endTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linearLayout_startTime">
+        <Button
+            android:id="@+id/btn_chose_end_date"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:text="Wähle das End Datum"
+            />
+        <TextView
+            android:id="@+id/tv_showEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+<!--
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInput_layout_event_endDate"
         android:layout_width="match_parent"
@@ -105,12 +144,13 @@
 
 
     </android.support.design.widget.TextInputLayout>
+-->
 
     <RelativeLayout
         android:id="@+id/relativelayout_selectPicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textInput_layout_event_endDate">
+        android:layout_below="@+id/linearLayout_endTime">
 
         <Button
             android:id="@+id/btn_event_getPicture"
