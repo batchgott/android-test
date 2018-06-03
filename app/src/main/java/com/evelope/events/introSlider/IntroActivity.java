@@ -18,6 +18,7 @@ public class IntroActivity extends AppIntro {
 
         addSlide(new IntroFragment1());
         addSlide(new IntroFragment2());
+        addSlide(new IntroFragment4());
         addSlide(new IntroFragment3());
 
 

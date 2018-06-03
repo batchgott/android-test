@@ -6,35 +6,61 @@
     android:background="@color/backround_intro_slider"
     >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="80dp"
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
+        android:padding="10dp"
         >
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_above="@+id/intro_text"
+            android:src="@drawable/logo_rund"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/intro_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Viel Vergnügen auf deinem nächsten Event"
+            android:fontFamily="@font/microsoft_yi_baiti"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/btn_login"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"/>
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="57dp"
         android:background="#4f5e7c"
-        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
         android:textSize="18sp"
-        android:layout_marginBottom="50dp"
-        android:text="Registrieren"/>
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Registrieren" />
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="57dp"
-            android:background="#4f5e7c"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="50dp"
+            android:layout_above="@+id/btn_register"
+            android:layout_marginBottom="20dp"
             android:textSize="18sp"
-            android:text="Einloggen"/>
+            android:layout_centerHorizontal="true"
+            android:background="#4f5e7c"
+            android:text="Einloggen"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

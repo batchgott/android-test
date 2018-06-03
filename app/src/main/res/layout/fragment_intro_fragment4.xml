@@ -2,30 +2,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.evelope.events.introSlider.IntroFragment2"
     android:background="@color/backround_intro_slider">
 
     <ImageView
-        android:id="@+id/iv_map"
+        android:id="@+id/pic_groups"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="404dp"
+        android:layout_marginTop="20dp"
         android:layout_centerVertical="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/eventmap"
-        android:layout_marginTop="5dp"/>
-
-  <TextView
-
-        android:id="@+id/textView2"
+        android:scaleType="fitStart"
+        android:src="@drawable/picgroups" />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/microsoft_yi_baiti"
         android:textSize="40sp"
         android:textColor="@color/white"
-        android:layout_below="@+id/iv_map"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:text="Finde Events in deiner Nähe"
-      />
+        android:text="Triff neue Leute mit den selben Interessen"
+        android:layout_below="@+id/pic_groups"
+        />
+
+
 
 </RelativeLayout>
