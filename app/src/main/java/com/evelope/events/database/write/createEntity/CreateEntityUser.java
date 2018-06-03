@@ -49,7 +49,7 @@ public class CreateEntityUser extends AWrite {
     }
 
     //mit Server
-    public CreateEntityUser(String firstName, String lastName, String description, String email, String phonenumber, String password, Long userID, Bitmap image, Context context) {
+    public CreateEntityUser(Long pictureID,String firstName, String lastName, String description, String email, String phonenumber, String password, Long userID, Bitmap image, Context context) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.description = description;
@@ -58,12 +58,12 @@ public class CreateEntityUser extends AWrite {
         this.password = password;
         this.userID = userID;
         this.image = image;
-
+        this.pictureID=pictureID;
         this.context=context;
 
         db= AppDatabase.getAppDatabase(context);
 
-        createPicture();
+        createPictureWithServer();
 
         alterDatabase();
     }
@@ -86,6 +86,10 @@ public class CreateEntityUser extends AWrite {
 
     private void createPicture(){
         entityPicture=new CreateEntityPicture(image,context);
+        pictureID=entityPicture.pictureID;
+    }
+    private void createPictureWithServer(){
+        entityPicture=new CreateEntityPicture(pictureID,image,context);
         pictureID=entityPicture.pictureID;
     }
 }

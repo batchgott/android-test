@@ -24,6 +24,7 @@ public class CreateEntityPicture extends AWrite {
 
     private CreateEntityPath entityPath;
 
+    //without Server
     public CreateEntityPicture(Bitmap image, Context context){
         this.image=image;
 
@@ -43,6 +44,24 @@ public class CreateEntityPicture extends AWrite {
         alterDatabase();
     }
 
+    //with Server
+    public CreateEntityPicture(Long pictureID,Bitmap image, Context context){
+        this.image=image;
+
+        this.context =context;
+
+        this.pictureID=pictureID;
+
+        db=AppDatabase.getAppDatabase(context);
+
+
+        name="p"+pictureID.toString();
+
+        createPathWithServer();
+
+        alterDatabase();
+    }
+
     @Override
     protected void alterDatabase(){
         Picture picture =new Picture();
@@ -55,6 +74,14 @@ public class CreateEntityPicture extends AWrite {
     }
 
     private void createPath(){
+
+        entityPath=new CreateEntityPath(image,context);
+
+        pathID=entityPath.pathID;
+
+    }
+
+    private void createPathWithServer(){
 
         entityPath=new CreateEntityPath(image,context);
 

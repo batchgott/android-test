@@ -21,7 +21,7 @@ import com.evelope.events.database.daos.User_EventDao;
 //--------------------------------------------------------
 
 @Database(entities = {User.class,Picture.class,Path.class,Group_User.class,Group.class,Event.class, Categorie.class,Categorie_Group.class,User_Event.class},
-        version = 12,exportSchema = false)
+        version = 13,exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDao userDao();
     public abstract EventDao eventDao();
