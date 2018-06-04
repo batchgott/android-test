@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,6 +51,8 @@ class CostumeUserListView extends ArrayAdapter<String>{
         viewHolder.ivUserPicture.setImageBitmap(pictures[position]);
         viewHolder.tvUserName=(TextView)convertView.findViewById(R.id.tv_user_name);
         viewHolder.tvUserName.setText(userName[position]);
+        viewHolder.btn_deleteUser=(ImageButton)convertView.findViewById(R.id.btn_deleteUser);
+        viewHolder.btn_deleteUser.setVisibility(View.GONE);
         return convertView;
     }
 
@@ -57,5 +60,6 @@ class CostumeUserListView extends ArrayAdapter<String>{
         Long userID;
         TextView tvUserName;
         ImageView ivUserPicture;
+        ImageButton btn_deleteUser;
     }
 }

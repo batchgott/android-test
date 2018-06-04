@@ -54,8 +54,7 @@ public class CreateEventFragment extends Fragment {
     CheckBox cbx_joinEvent;
     Button btn_startDate;
     Button btn_endDate;
-    static TextView tv_showStartDate;
-    static TextView tv_showEndDate;
+
 
     DatePickerFragment startFragment, endFragment;
 
@@ -84,8 +83,7 @@ public class CreateEventFragment extends Fragment {
         cbx_joinEvent=(CheckBox)view.findViewById(R.id.cbx_joinEvent);
 
         img_event_picture=(ImageView)view.findViewById(R.id.img_event_picture);
-        tv_showStartDate=(TextView)view.findViewById(R.id.tv_showStartDate);
-        tv_showEndDate=(TextView)view.findViewById(R.id.tv_showEndDate);
+
 
         btn_getImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +104,6 @@ public class CreateEventFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showStartDatePickerDialog();
-                tv_showStartDate.setText(startFragment.getSelectedDay()+"."+startFragment.getSelectedMonth()+"."+startFragment.getSelectedYear());
             }
         });
 
@@ -114,7 +111,6 @@ public class CreateEventFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showEndDatePickerDialog();
-                tv_showEndDate.setText(endFragment.getSelectedDay()+"."+endFragment.getSelectedMonth()+"."+endFragment.getSelectedYear());
             }
         });
 

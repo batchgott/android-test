@@ -7,6 +7,7 @@ import android.widget.ListView;
 
 import com.evelope.events.database.Event;
 import com.evelope.events.database.Group;
+import com.evelope.events.database.User;
 
 import java.util.List;
 
@@ -27,4 +28,7 @@ public interface GroupDao {
 
     @Query("SELECT * FROM `Group` g JOIN Categorie_Group cg USING(g_id) WHERE cg.c_id=:catID AND g.e_id=:eventID")
     List<Group> getGroupForCategoryIDandEventID(Long catID,Long eventID);
+
+    @Query("SELECT * FROM `Group` g JOIN User u ON g.admin_id=u.u_id WHERE g.g_id=:groupIDforFragment ")
+    User getAdminForGroupID(Long groupIDforFragment);
 }

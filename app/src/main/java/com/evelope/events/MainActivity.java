@@ -234,6 +234,13 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
             currentFragment=efragment.GROUPS_FRAGMENT;
         }
+        else if (currentFragment==efragment.GROUP_DETAILS_FRAGMENT){
+            fragmentGroups=new GroupsFragment();
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.contentContainer, fragmentGroups);
+            transaction.commit();
+            currentFragment=efragment.GROUPS_FRAGMENT;
+        }
         else if ((currentFragment==efragment.EVENTS_FRAGMENT||currentFragment==efragment.GROUPS_FRAGMENT||currentFragment==efragment.CREATE_EVENTS_FRAGMENT||currentFragment==efragment.SHOW_USER_FRAGMENT)) {
         if (!pressedBackOnce) {
                 pressedBackOnce = true;
@@ -293,6 +300,22 @@ public class MainActivity extends AppCompatActivity {
             transaction.replace(R.id.contentContainer, fragmentGroupMemberDetails);
             transaction.commit();
             currentFragment = efragment.GROUP_MEMBER_DETAILS_FRAGMENT;
+        } else {
+            Log.e("Wrong Fragment", "Deppat?");
+        }
+    }
+
+    public void selectOtherFragment(efragment fragment,Long userID,Boolean isAdmin) {
+        if (fragment == efragment.GROUP_DETAILS_FRAGMENT) {
+            fragmentGroupDetails = new GroupDetailsFragment();
+            Bundle bundl = new Bundle();
+            bundl.putString("groupID", userID.toString());
+            bundl.putBoolean("isAdmin",isAdmin);
+            fragmentGroupDetails.setArguments(bundl);
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.contentContainer, fragmentGroupDetails);
+            transaction.commit();
+            currentFragment = efragment.GROUP_DETAILS_FRAGMENT;
         } else {
             Log.e("Wrong Fragment", "Deppat?");
         }

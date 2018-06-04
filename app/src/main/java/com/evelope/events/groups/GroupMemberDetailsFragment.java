@@ -63,7 +63,6 @@ public class GroupMemberDetailsFragment extends Fragment {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         iv_image=(ImageView)view.findViewById(R.id.iv_image);
         GetPictureFromFile gpff=new GetPictureFromFile(mActivity,currentUser);
         iv_image.setImageBitmap(gpff.get());

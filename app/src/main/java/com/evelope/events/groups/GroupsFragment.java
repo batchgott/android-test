@@ -14,6 +14,7 @@ import com.evelope.events.MainActivity;
 import com.evelope.events.R;
 import com.evelope.events.database.AppDatabase;
 import com.evelope.events.database.Group;
+import com.evelope.events.database.User;
 import com.evelope.events.efragment;
 import com.evelope.events.tools.CurrentUser;
 
@@ -36,6 +37,7 @@ public class GroupsFragment extends Fragment {
     String[] eventName;
     Long[] eventID;
     Long[] adminID;
+    User tempAdmin;
 
     public GroupsFragment() {
     }
@@ -52,8 +54,23 @@ public class GroupsFragment extends Fragment {
         lvGroups.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Long groupIDforFragment=Long.parseLong((String) parent.getAdapter().getItem(position),10);
-                ((MainActivity)getActivity()).selectOtherFragment(efragment.GROUP_DETAILS_FRAGMENT,groupIDforFragment);
+                final Long groupIDforFragment=Long.parseLong((String) parent.getAdapter().getItem(position),10);
+                Boolean isAdmin=false;
+
+                Thread t=new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        tempAdmin=AppDatabase.getAppDatabase(getContext()).groupDao().getAdminForGroupID(groupIDforFragment);
+                    }
+                });
+                t.start();
+                try {
+                    t.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                ((MainActivity)getActivity()).selectOtherFragment(efragment.GROUP_DETAILS_FRAGMENT,groupIDforFragment,tempAdmin.getU_id()==CurrentUser.get().getU_id());
             }
         });
         return view;

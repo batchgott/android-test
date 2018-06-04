@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -60,6 +61,7 @@ public class GroupDetailsFragment extends Fragment {
     Long[] userID;
     String[] userName;
     Bitmap[] pictures;
+    Boolean isAdmin;
 
     public GroupDetailsFragment() {
     }
@@ -90,6 +92,9 @@ public class GroupDetailsFragment extends Fragment {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        isAdmin=getArguments().getBoolean("isAdmin");
+
 
         tv_group_name=(TextView)view.findViewById(R.id.tv_group_details_header);
         tv_group_name.setText(currentGroup.getName());
@@ -200,7 +205,7 @@ public class GroupDetailsFragment extends Fragment {
                 pictures[i]=allUsersForList.get(i).getBitmap();
             }
         }
-        CostumeUserListView costumeUserListView=new CostumeUserListView(mActivity, userID, userName, pictures);
+        CostumeUserListView costumeUserListView=new CostumeUserListView(mActivity, userID, userName, pictures,isAdmin,currentGroup.getG_id());
         lvParticipants.setAdapter(costumeUserListView);
     }
 

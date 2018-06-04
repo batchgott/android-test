@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/linearLayout_participants"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -28,9 +29,23 @@
             android:layout_toRightOf="@+id/iv_user_picture"
             android:layout_toEndOf="@id/iv_user_picture"
             android:layout_centerVertical="true"
+            android:scrollHorizontally="false"
+            android:maxLines="1"
             android:layout_marginLeft="5dp"
             android:textSize="22sp"
             android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btn_deleteUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="35dp"
+            android:src="@drawable/ic_delete"
+            android:padding="8dp"
+            android:background="@null"
+            />
 
     </RelativeLayout>
 
