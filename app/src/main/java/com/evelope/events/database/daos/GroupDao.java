@@ -24,4 +24,7 @@ public interface GroupDao {
 
     @Query("SELECT * FROM `Group` g WHERE g.g_id=:groupID")
     Group getGroupByID(Long groupID);
+
+    @Query("SELECT * FROM `Group` g JOIN Categorie_Group cg USING(g_id) WHERE cg.c_id=:catID AND g.e_id=:eventID")
+    List<Group> getGroupForCategoryIDandEventID(Long catID,Long eventID);
 }

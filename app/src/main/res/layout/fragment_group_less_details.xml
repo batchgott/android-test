@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".findGroup.GroupLessDetailsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_group_details_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alfa_slab_one"
+            android:textSize="35sp"
+            />
+        <View
+            android:id="@+id/seperatorLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@+id/tv_group_details_header"/>
+        <ImageView
+            android:id="@+id/iv_group_details_picture"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/seperatorLine"
+            />
+        <TextView
+            android:id="@+id/tv_group_details_event_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_group_details_picture"
+            android:layout_toEndOf="@+id/iv_group_details_picture"
+            android:layout_below="@+id/seperatorLine"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:id="@+id/tv_group_details_description_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beschreibung"
+            android:layout_below="@+id/iv_group_details_picture"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tv_group_details_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_group_details_description_title"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="18sp"
+            android:background="@drawable/back"
+            />
+
+        <Button
+            android:id="@+id/btn_joinGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/tv_group_details_description"
+            android:layout_marginTop="10dp"
+            android:text="Gruppe beitreten"
+            />
+
+        <TextView
+            android:id="@+id/tv_group_details_participant_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teilnehmer"
+            android:layout_below="@+id/btn_joinGroup"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"/>
+
+        <ListView
+            android:id="@+id/lv_participants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_group_details_participant_list_title"></ListView>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

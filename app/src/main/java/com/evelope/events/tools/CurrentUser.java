@@ -67,6 +67,7 @@ public class CurrentUser {
             userID=Long.parseLong(sb.toString(),10);
         } catch (Exception e) {
             Log.e("getCurrentUser: ",Log.getStackTraceString(e));
+            userID=-10l;
         }
         if (userID!=-10) {
             Thread t = new Thread(new Runnable() {

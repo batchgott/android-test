@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.evelope.events.createEvent.CreateEventFragment;
@@ -13,7 +14,11 @@ import com.evelope.events.edit.EditUserFragment;
 import com.evelope.events.edit.ShowUserFragment;
 import com.evelope.events.events.EventDetailsFragment;
 import com.evelope.events.events.EventsFragment;
+import com.evelope.events.findGroup.FindGroupFragment;
+import com.evelope.events.findGroup.GroupLessDetailsFragment;
+import com.evelope.events.findGroup.ListGroupsFragment;
 import com.evelope.events.groups.GroupDetailsFragment;
+import com.evelope.events.groups.GroupMemberDetailsFragment;
 import com.evelope.events.groups.GroupsFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
@@ -30,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
     CreateGroupFragment fragmentCreateGroup;
     GroupDetailsFragment fragmentGroupDetails;
     FragmentTransaction transaction;
+    FindGroupFragment fragmentFindGroup;
+    ListGroupsFragment fragmentListGroups;
+    GroupMemberDetailsFragment fragmentGroupMemberDetails;
+    GroupLessDetailsFragment fragmentGroupLessDetails;
 
     BottomBar bottomBar;
     Boolean pressedBackOnce;
@@ -123,6 +132,26 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
             currentFragment=efragment.EVENT_DETAILS_FRAGMENT;
         }
+        if (fragment==efragment.GROUP_LESS_DETAILS_FRAGMENT) {
+            fragmentGroupLessDetails =new GroupLessDetailsFragment();
+            Bundle bundl=new Bundle();
+            bundl.putString("groupID",id.toString());
+            fragmentGroupLessDetails.setArguments(bundl);
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.contentContainer, fragmentGroupLessDetails);
+            transaction.commit();
+            currentFragment=efragment.GROUP_LESS_DETAILS_FRAGMENT;
+        }
+        if (fragment==efragment.GROUP_MEMBER_DETAILS_FRAGMENT) {
+            fragmentGroupMemberDetails =new GroupMemberDetailsFragment();
+            Bundle bundl=new Bundle();
+            bundl.putString("userID",id.toString());
+            fragmentGroupMemberDetails.setArguments(bundl);
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.contentContainer, fragmentGroupMemberDetails);
+            transaction.commit();
+            currentFragment=efragment.GROUP_MEMBER_DETAILS_FRAGMENT;
+        }
         if (fragment==efragment.CREATE_GROUP_FRAGMENT) {
             fragmentCreateGroup =new CreateGroupFragment();
             Bundle bundl=new Bundle();
@@ -142,6 +171,16 @@ public class MainActivity extends AppCompatActivity {
             transaction.replace(R.id.contentContainer, fragmentGroupDetails);
             transaction.commit();
             currentFragment=efragment.GROUP_DETAILS_FRAGMENT;
+        }
+        if (fragment==efragment.FIND_GROUP_FRAGMENT) {
+            fragmentFindGroup =new FindGroupFragment();
+            Bundle bundl=new Bundle();
+            bundl.putString("eventID",id.toString());
+            fragmentFindGroup.setArguments(bundl);
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.contentContainer, fragmentFindGroup);
+            transaction.commit();
+            currentFragment=efragment.FIND_GROUP_FRAGMENT;
         }
     }
     public void selectOtherFragment(efragment fragment,Integer decideWhichPage){
@@ -169,34 +208,94 @@ public class MainActivity extends AppCompatActivity {
             transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.contentContainer, fragmentEvents);
             transaction.commit();
+            currentFragment=efragment.EVENTS_FRAGMENT;
         }
         else if (currentFragment==efragment.EDIT_USER_FRAGMENT){
             fragmentShowUser=new ShowUserFragment();
             transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.contentContainer, fragmentShowUser);
             transaction.commit();
+            currentFragment=efragment.SHOW_USER_FRAGMENT;
         }
         else if (currentFragment==efragment.EVENT_DETAILS_FRAGMENT){
             fragmentEvents=new EventsFragment();
+            Bundle bundl=new Bundle();
+            bundl.putString("page","0");
+            fragmentEvents.setArguments(bundl);
             transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.contentContainer, fragmentEvents);
             transaction.commit();
+            currentFragment=efragment.EVENTS_FRAGMENT;
         }
-        else if (!pressedBackOnce){
-            pressedBackOnce=true;
-            Toast.makeText(getApplicationContext(),"Nochmal drücken um App zu beenden",Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    pressedBackOnce=false;
-                }
-            },3000);
+        else if (currentFragment==efragment.GROUP_MEMBER_DETAILS_FRAGMENT){
+            fragmentGroups=new GroupsFragment();
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.contentContainer, fragmentGroups);
+            transaction.commit();
+            currentFragment=efragment.GROUPS_FRAGMENT;
         }
-        else {
-            finish();
-            System.exit(0);
+        else if ((currentFragment==efragment.EVENTS_FRAGMENT||currentFragment==efragment.GROUPS_FRAGMENT||currentFragment==efragment.CREATE_EVENTS_FRAGMENT||currentFragment==efragment.SHOW_USER_FRAGMENT)) {
+        if (!pressedBackOnce) {
+                pressedBackOnce = true;
+                Toast.makeText(getApplicationContext(), "Nochmal drücken um App zu beenden", Toast.LENGTH_SHORT).show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        pressedBackOnce = false;
+                    }
+                }, 3000);
+            } else {
+                finish();
+                System.exit(0);
+            }
         }
+        else{
+            fragmentEvents=new EventsFragment();
+            Bundle bundl=new Bundle();
+            bundl.putString("page","0");
+            fragmentEvents.setArguments(bundl);
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.contentContainer, fragmentEvents);
+            transaction.commit();
+            currentFragment=efragment.EVENTS_FRAGMENT;
+        }
+    }
+    public void selectOtherFragment(efragment fragment,Long id,Boolean cat1,Boolean cat2, Boolean cat3, Boolean cat4, Boolean cat5, Boolean cat6){
+        if (fragment==efragment.LIST_GROUPS_FRAGMENT) {
+            fragmentListGroups =new ListGroupsFragment();
+            Bundle bundl=new Bundle();
+            bundl.putString("eventID",id.toString());
+            bundl.putBoolean("cat1",cat1);
+            bundl.putBoolean("cat2",cat2);
+            bundl.putBoolean("cat3",cat3);
+            bundl.putBoolean("cat4",cat4);
+            bundl.putBoolean("cat5",cat5);
+            bundl.putBoolean("cat6",cat6);
+            fragmentListGroups.setArguments(bundl);
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.contentContainer, fragmentListGroups);
+            transaction.commit();
+            currentFragment=efragment.LIST_GROUPS_FRAGMENT;
+        }
+        else{
+            Log.e("Wrong Fragment","Deppat?");
+        }
+    }
 
+    public void selectOtherFragment(efragment fragment,Long userID,Long groupID) {
+        if (fragment == efragment.GROUP_MEMBER_DETAILS_FRAGMENT) {
+            fragmentGroupMemberDetails = new GroupMemberDetailsFragment();
+            Bundle bundl = new Bundle();
+            bundl.putString("userID", userID.toString());
+            bundl.putString("groupID",groupID.toString());
+            fragmentGroupMemberDetails.setArguments(bundl);
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.contentContainer, fragmentGroupMemberDetails);
+            transaction.commit();
+            currentFragment = efragment.GROUP_MEMBER_DETAILS_FRAGMENT;
+        } else {
+            Log.e("Wrong Fragment", "Deppat?");
+        }
     }
 
     public void setTabID(int id){

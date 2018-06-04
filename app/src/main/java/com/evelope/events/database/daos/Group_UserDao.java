@@ -1,6 +1,7 @@
 package com.evelope.events.database.daos;
 
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
@@ -14,4 +15,7 @@ public interface Group_UserDao {
 
     @Query("SELECT count(*) FROM GROUP_USER gu WHERE gu.g_id=:groupID")
     int countParticipantsForGroupID(Long groupID);
+
+    @Delete
+    void deleteUserFromGroup(Group_User gu);
 }

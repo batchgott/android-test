@@ -2,13 +2,17 @@ package com.evelope.events.groups;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,7 +22,10 @@ import com.evelope.events.R;
 import com.evelope.events.database.AppDatabase;
 import com.evelope.events.database.Event;
 import com.evelope.events.database.Group;
+import com.evelope.events.database.Group_User;
 import com.evelope.events.database.User;
+import com.evelope.events.efragment;
+import com.evelope.events.tools.CurrentUser;
 import com.evelope.events.tools.GetPictureFromFile;
 
 import org.w3c.dom.Text;
@@ -47,6 +54,7 @@ public class GroupDetailsFragment extends Fragment {
     TextView tv_group_meeting_place;
     TextView tv_group_meeting_time;
     ListView lvParticipants;
+    Button btn_leaveGroup;
     List<User> allUsersList;
     List<UserForList> allUsersForList;
     Long[] userID;
@@ -113,10 +121,57 @@ public class GroupDetailsFragment extends Fragment {
         allUsersForList=new ArrayList<>();
         setAdapterForLV();
 
+        lvParticipants.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Long groupMemberID=Long.parseLong((String) parent.getAdapter().getItem(position),10);
+                ((MainActivity)getActivity()).selectOtherFragment(efragment.GROUP_MEMBER_DETAILS_FRAGMENT,groupMemberID,currentGroup.getG_id());
+            }
+        });
+
+        btn_leaveGroup=(Button)view.findViewById(R.id.btn_leaveGroup);
+        btn_leaveGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(mActivity)
+                        .setMessage("Wollen Sie die Gruppe wirklich verlassen?")
+                        .setCancelable(false)
+                        .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                leaveGroup();
+                            }
+                        })
+                        .setNegativeButton("Nein", null)
+                        .show();
+            }
+        });
+
+        Utility.setListViewHeightBasedOnChildren(lvParticipants);
+
         return view;
     }
 
+    public void leaveGroup() {
+        Thread t=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Group_User gu=new Group_User();
+                gu.setU_id(CurrentUser.get().getU_id());
+                gu.setG_id(currentGroup.getG_id());
+                AppDatabase.getAppDatabase(mActivity).group_userDao().deleteUserFromGroup(gu);
+            }
+        });
+        t.start();
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ((MainActivity)getActivity()).selectOtherFragment(efragment.GROUPS_FRAGMENT);
+    }
+
     private void setAdapterForLV() {
+
 
         Thread t=new Thread(new Runnable() {
             @Override

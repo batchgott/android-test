@@ -170,13 +170,21 @@ public class EventDetailsFragment extends Fragment {
                 openCreateGroupFragment();
             }
         });
-
+        btn_findGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFindGroupFragment();
+            }
+        });
 
         return view;
     }
 
     private void openCreateGroupFragment(){
         ((MainActivity)getActivity()).selectOtherFragment(efragment.CREATE_GROUP_FRAGMENT,currentEvent.getE_id());
+    }
+    private void openFindGroupFragment(){
+        ((MainActivity)getActivity()).selectOtherFragment(efragment.FIND_GROUP_FRAGMENT,currentEvent.getE_id());
     }
 
 }

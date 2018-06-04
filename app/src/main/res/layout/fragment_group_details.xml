@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -168,15 +168,26 @@
             android:textSize="18sp"
             android:background="@drawable/back"
             />
+
+        <Button
+            android:id="@+id/btn_leaveGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_group_details_meeting_time"
+            android:text="Gruppe verlassen"
+            />
+
         <TextView
             android:id="@+id/tv_group_details_participant_list_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Teilnehmer"
-            android:layout_below="@+id/tv_group_details_meeting_time"
+            android:layout_below="@+id/btn_leaveGroup"
             android:layout_marginLeft="10dp"
             android:textSize="20sp"
             android:layout_marginTop="10dp"/>
+
+
 
         <ListView
             android:id="@+id/lv_participants"
@@ -186,4 +197,4 @@
 
     </RelativeLayout>
 
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

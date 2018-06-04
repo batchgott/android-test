@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".findGroup.FindGroupFragment">
+
+    <TextView
+        android:id="@+id/tv_findGroupHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Welche Dinge sind dir wichtig?"
+        android:textSize="35sp" />
+
+    <include
+        android:id="@+id/layout_categories"
+        layout="@layout/categories_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_below="@+id/tv_findGroupHeader"/>
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_categories"
+        android:layout_alignParentLeft="true"
+        android:text="←Zurück"/>
+
+<Button
+    android:id="@+id/btn_searchGroup"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/layout_categories"
+    android:layout_alignParentRight="true"
+    android:text="Suchen→"/>
+
+
+</RelativeLayout>
