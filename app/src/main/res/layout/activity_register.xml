@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/alfa_slab_one"
+        android:fontFamily="@font/microsoft_yi_baiti"
         android:text="Registrieren"
         android:textSize="35sp" />
 
@@ -111,10 +111,11 @@
             android:id="@+id/btn_user_getPicture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="79dp"
-            android:layout_marginRight="79dp"
+            android:padding="5dp"
+            android:layout_marginLeft="2dp"
             android:text="Wähle ein Bild aus der Galerie"
-            android:background="#4f5e7c"/>
+            android:textColor="@color/white"
+            android:background="#14509c"/>
 
         <ImageView
             android:id="@+id/img_user_picture"
@@ -127,15 +128,14 @@
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#4f5e7c"
-        android:layout_below="@+id/linearLayout_selectPicture"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="13dp"
+        android:layout_alignParentBottom="true"
+        android:background="#1773e8"
+
+        android:layout_margin="2dp"
+        android:textColor="@color/white"
         android:text="Registrieren" />
 
 </RelativeLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerVertical="true"
     tools:context="com.evelope.events.login.LoginActivity">
 
     <TextView
@@ -11,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/alfa_slab_one"
+        android:fontFamily="@font/microsoft_yi_baiti"
         android:text="Login"
         android:textSize="35sp" />
 
@@ -51,7 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#4f5e7c"
+        android:background="#1773e8"
+        android:textColor="@color/white"
         android:layout_below="@+id/edt_password"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
