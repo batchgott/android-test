@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:fontFamily="@font/alfa_slab_one"
+            android:fontFamily="@font/microsoft_yi_baiti"
             android:textSize="35sp" />
 
         <View
@@ -65,7 +65,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/iv_locationIcon"
-                android:background="@drawable/back"
+
                 android:paddingBottom="8dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
@@ -79,7 +79,6 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/iv_dateIcon"
-                android:background="@drawable/back"
                 android:paddingBottom="8dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
@@ -131,7 +130,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_descriptionTitle"
-            android:background="@drawable/back"
             android:layout_margin="10dp"/>
 
 
@@ -169,7 +167,8 @@
                 android:id="@+id/btn_createGroup"
                 android:layout_width="350dp"
                 android:layout_height="57dp"
-                android:background="#4f5e7c"
+                android:background="#1773e8"
+                android:textColor="@color/white"
                 android:layout_gravity="center_horizontal"
                 android:textSize="18sp"
                 android:layout_marginBottom="50dp"
@@ -179,8 +178,8 @@
                 android:id="@+id/btn_findGroup"
                 android:layout_width="350dp"
                 android:layout_height="57dp"
-                android:background="#4f5e7c"
-                android:layout_gravity="center_horizontal"
+                android:background="#1773e8"
+                android:textColor="@color/white"
                 android:layout_marginBottom="50dp"
                 android:textSize="18sp"
                 android:text="Gruppe finden"/>

@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/alfa_slab_one"
+        android:fontFamily="@font/microsoft_yi_baiti"
         android:text="Erstelle ein Event"
         android:textSize="35sp" />
 
@@ -160,6 +160,8 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="79dp"
             android:layout_marginRight="79dp"
+            android:backgroundTint="#14509c"
+            android:textColor="@color/white"
             android:text="Wähle ein Bild aus der Galerie" />
 
     <ImageView
@@ -186,11 +188,12 @@
 
     <Button
         android:id="@+id/btn_createEvent"
-        android:layout_below="@+id/seperatorLine2"
-        android:layout_width="wrap_content"
+
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="79dp"
-        android:layout_marginRight="79dp"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:backgroundTint="#1773e8"
         android:text="Erstelle Event" />
 
 
