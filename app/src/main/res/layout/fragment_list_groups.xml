@@ -17,13 +17,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_noGroupsFound"
         android:text="Zurück zur Kategorieauswahl"
+        android:backgroundTint="#14509c"
+        android:textColor="@color/white"
         />
 
     <TextView
         android:id="@+id/GroupsHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/alfa_slab_one"
+        android:fontFamily="@font/microsoft_yi_baiti"
         android:text="Gruppen"
         android:textSize="35sp"
         />

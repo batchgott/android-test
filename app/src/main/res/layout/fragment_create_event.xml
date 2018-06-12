@@ -102,6 +102,8 @@
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:text="Wähle das Start Datum"
+            android:backgroundTint="#14509c"
+            android:textColor="@color/white"
             />
         <TextView
             android:id="@+id/tv_showStartDate"
@@ -120,6 +122,8 @@
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:text="Wähle das End Datum"
+            android:backgroundTint="#14509c"
+            android:textColor="@color/white"
             />
         <TextView
             android:id="@+id/tv_showEndDate"

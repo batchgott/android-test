@@ -11,7 +11,7 @@
         android:id="@+id/EditUserHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/alfa_slab_one"
+        android:fontFamily="@font/microsoft_yi_baiti"
         android:text="Profil"
         android:textSize="35sp"
         android:layout_centerHorizontal="true"
@@ -68,7 +68,6 @@
         android:paddingLeft="5dp"
         android:layout_marginLeft="10dp"
         android:textSize="18sp"
-        android:background="@drawable/back"
         />
     <TextView
         android:id="@+id/tv_phonenumberTitle"
@@ -89,7 +88,6 @@
         android:layout_below="@+id/tv_phonenumberTitle"
         android:layout_marginLeft="10dp"
         android:textSize="18sp"
-        android:background="@drawable/back"
         />
     <ImageButton
         android:id="@+id/ib_close"

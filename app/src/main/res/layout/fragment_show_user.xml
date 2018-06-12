@@ -107,7 +107,9 @@
         android:layout_below="@+id/tv_phonenumber"
         android:layout_alignParentRight="true"
         android:text="Logout"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#14509c"
+        android:textColor="@color/white"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/float_edit"

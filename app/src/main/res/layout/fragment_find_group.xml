@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/alfa_slab_one"
+        android:fontFamily="@font/microsoft_yi_baiti"
         android:text="Welche Dinge sind dir wichtig?"
         android:textSize="35sp" />
 
@@ -27,7 +27,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/layout_categories"
         android:layout_alignParentLeft="true"
-        android:text="←Zurück"/>
+        android:text="←Zurück"
+        android:backgroundTint="#14509c"
+        android:textColor="@color/white"/>
 
 <Button
     android:id="@+id/btn_searchGroup"
@@ -35,7 +37,9 @@
     android:layout_height="wrap_content"
     android:layout_below="@+id/layout_categories"
     android:layout_alignParentRight="true"
-    android:text="Suchen→"/>
+    android:text="Suchen→"
+    android:backgroundTint="#14509c"
+    android:textColor="@color/white"/>
 
 
 </RelativeLayout>

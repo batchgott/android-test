@@ -13,7 +13,7 @@
             android:id="@+id/tv_group_details_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/alfa_slab_one"
+            android:fontFamily="@font/microsoft_yi_baiti"
             android:textSize="35sp"
             />
         <View
@@ -58,7 +58,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:textSize="18sp"
-            android:background="@drawable/back"
             />
 
         <Button
@@ -69,6 +68,8 @@
             android:layout_below="@+id/tv_group_details_description"
             android:layout_marginTop="10dp"
             android:text="Gruppe beitreten"
+            android:backgroundTint="#14509c"
+            android:textColor="@color/white"
             />
 
         <TextView
